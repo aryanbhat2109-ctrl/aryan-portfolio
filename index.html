@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090d18" />
+  <meta name="description" content="Aryan Bhat — Computer Science Engineering student, Python and web development enthusiast." />
+  <title>Aryan Bhat | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d18;
+      --surface: #101727;
+      --surface-2: #141e31;
+      --text: #edf2ff;
+      --muted: #a2aec5;
+      --line: rgba(169, 188, 224, .14);
+      --accent: #8b9cff;
+      --accent-2: #65e0c2;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 75% 0%, rgba(83, 103, 213, .16), transparent 36rem),
+        radial-gradient(ellipse at 0% 35%, rgba(47, 183, 164, .08), transparent 30rem),
+        var(--bg);
+      font-family: "Manrope", sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px);
+      background: rgba(9, 13, 24, .78); border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.05em; font-size: 1.15rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 30px; align-items: center; color: var(--muted); font-size: .88rem; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta, .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: .88rem;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .nav-cta, .button.primary { color: #0a1020; background: var(--accent); }
+    .button.secondary { border: 1px solid var(--line); background: rgba(255,255,255,.025); color: var(--text); }
+    .button:hover, .nav-cta:hover { transform: translateY(-2px); }
+    .hero { padding: 112px 0 92px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 56px; min-height: 590px; }
+    .eyebrow { color: var(--accent-2); font: 500 .75rem "DM Mono", monospace; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { font-size: clamp(3.2rem, 7vw, 5.9rem); line-height: 1.02; letter-spacing: -.075em; margin: 20px 0 22px; }
+    h1 .gradient { background: linear-gradient(100deg, #edf2ff 15%, #9aaaff 62%, #65e0c2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: var(--muted); max-width: 610px; font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero-meta { display: flex; align-items: center; gap: 12px; margin-top: 34px; color: var(--muted); font-size: .82rem; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 14px var(--accent-2); }
+    .hero-visual { position: relative; display: grid; place-items: center; min-height: 350px; }
+    .orb {
+      width: min(320px, 75vw); aspect-ratio: 1; border-radius: 50%; position: relative;
+      background: radial-gradient(circle at 32% 28%, rgba(163,178,255,.95), rgba(91,107,201,.6) 28%, rgba(29,42,76,.8) 58%, rgba(11,17,32,.9) 72%);
+      box-shadow: inset -22px -28px 60px rgba(0,0,0,.5), 0 0 90px rgba(115,133,255,.18);
+      border: 1px solid rgba(194,204,255,.25);
+    }
+    .orb:before, .orb:after { content: ""; position: absolute; inset: -25px; border: 1px solid rgba(139,156,255,.28); border-radius: 50%; transform: rotate(-25deg) scaleY(.36); }
+    .orb:after { inset: -52px; transform: rotate(34deg) scaleY(.28); border-color: rgba(101,224,194,.24); }
+    .orbit-tag { position: absolute; padding: 10px 14px; border: 1px solid var(--line); background: rgba(16,23,39,.86); border-radius: 12px; color: #dce4ff; font: .75rem "DM Mono", monospace; box-shadow: 0 14px 40px rgba(0,0,0,.25); }
+    .tag-python { top: 16%; right: -2%; } .tag-sql { bottom: 17%; left: -5%; } .tag-web { top: 6%; left: 2%; }
+    section { padding: 76px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    .section-kicker { color: var(--accent-2); font: 500 .72rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .15em; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.06em; line-height: 1.12; margin: 10px 0 0; }
+    .section-note { color: var(--muted); max-width: 390px; font-size: .92rem; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; }
+    .panel { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(20,30,49,.86), rgba(14,21,36,.88)); border-radius: 22px; padding: 28px; }
+    .about-text { color: var(--muted); font-size: 1rem; margin: 0; }
+    .fact-list { display: grid; gap: 16px; }
+    .fact { display: flex; gap: 14px; align-items: flex-start; }
+    .fact-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: var(--accent-2); background: rgba(101,224,194,.09); flex: 0 0 auto; }
+    .fact small { color: var(--muted); display: block; font-size: .75rem; }
+    .fact strong { font-size: .92rem; font-weight: 700; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .skill { padding: 22px; border: 1px solid var(--line); background: rgba(16,23,39,.75); border-radius: 17px; min-height: 110px; display: flex; flex-direction: column; justify-content: space-between; transition: transform .2s ease, border-color .2s ease; }
+    .skill:hover, .project:hover { transform: translateY(-4px); border-color: rgba(139,156,255,.48); }
+    .skill-mark { color: var(--accent); font: 500 .75rem "DM Mono", monospace; }
+    .skill strong { font-size: 1.05rem; }
+    .project { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(20,30,49,.9), rgba(12,18,31,.95)); border-radius: 22px; overflow: hidden; transition: transform .2s ease, border-color .2s ease; }
+    .project-art { height: 190px; position: relative; overflow: hidden; background: linear-gradient(135deg, #1a2541, #111b31 60%, #173a43); display: grid; place-items: center; }
+    .chart-bars { display: flex; align-items: end; gap: 10px; height: 105px; transform: skewY(-8deg); }
+    .chart-bars span { width: 23px; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, var(--accent), rgba(101,224,194,.5)); box-shadow: 0 0 24px rgba(139,156,255,.18); }
+    .chart-bars span:nth-child(1) { height: 38%; } .chart-bars span:nth-child(2) { height: 72%; } .chart-bars span:nth-child(3) { height: 55%; } .chart-bars span:nth-child(4) { height: 92%; } .chart-bars span:nth-child(5) { height: 66%; } .chart-bars span:nth-child(6) { height: 82%; }
+    .project-content { padding: 26px; }
+    .project-type { color: var(--accent-2); font: .7rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .12em; }
+    .project h3 { margin: 10px 0; font-size: 1.35rem; letter-spacing: -.04em; }
+    .project p { color: var(--muted); margin: 0 0 20px; font-size: .91rem; max-width: 680px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { color: #c9d3ec; border: 1px solid var(--line); background: rgba(255,255,255,.025); padding: 6px 10px; border-radius: 999px; font: .7rem "DM Mono", monospace; }
+    .education-card { display: flex; align-items: center; gap: 20px; }
+    .edu-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 16px; background: rgba(139,156,255,.12); color: var(--accent); font-size: 1.35rem; flex: 0 0 auto; }
+    .education-card h3 { margin: 0 0 5px; font-size: 1.08rem; }
+    .education-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .contact-panel { padding: 42px; border-radius: 26px; border: 1px solid rgba(139,156,255,.25); background: radial-gradient(ellipse at 100% 0%, rgba(139,156,255,.16), transparent 50%), var(--surface); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact-panel p { color: var(--muted); margin: 12px 0 0; max-width: 520px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    footer { padding: 30px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 82px 0 60px; gap: 20px; }
+      .hero-visual { min-height: 300px; }
+      .orb { width: 230px; }
+      .tag-python { right: 7%; } .tag-sql { left: 5%; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-panel { align-items: flex-start; flex-direction: column; padding: 30px; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      nav { min-height: 66px; }
+      .nav-links { gap: 14px; font-size: .76rem; }
+      .nav-cta { display: none; }
+      h1 { font-size: clamp(3rem, 16vw, 4.3rem); }
+      .hero-copy { font-size: .98rem; }
+      section { padding: 58px 0; }
+      .panel { padding: 22px; }
+      .skills-grid { gap: 10px; }
+      .skill { min-height: 96px; padding: 16px; }
+      .contact-links { flex-direction: column; width: 100%; }
+      .contact-links .button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home">AB<span>.</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="mailto:aryanbhat2109@gmail.com">Let's talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Computer Science Engineering Student</div>
+        <h1>Hi, I'm<br><span class="gradient">Aryan Bhat.</span></h1>
+        <p class="hero-copy">I’m passionate about software development and problem solving, with a foundation in Python, SQL, HTML and CSS. I’m looking for an opportunity to learn, contribute and grow as a software developer.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="mailto:aryanbhat2109@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="Aryan_Resume.pdf" download>Download resume <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-meta"><span class="status-dot"></span> Open to internship and entry-level opportunities</div>
+      </div>
+      <div class="hero-visual" aria-label="Abstract technology illustration">
+        <div class="orb"></div>
+        <div class="orbit-tag tag-web">HTML / CSS</div>
+        <div class="orbit-tag tag-python">Python</div>
+        <div class="orbit-tag tag-sql">SQL</div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="about">
+      <div class="section-head">
+        <div><div class="section-kicker">01 / About</div><h2>A little about me.</h2></div>
+        <p class="section-note">Curious by nature. Focused on building practical skills and turning ideas into working software.</p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <p class="about-text">Motivated Computer Science student with a strong foundation in Python, HTML, and CSS. Passionate about software development and problem solving. Seeking an internship or entry-level Software Developer role to apply technical skills. Always keen to learn new software and technologies.</p>
+        </div>
+        <div class="panel fact-list">
+          <div class="fact"><div class="fact-icon">⌘</div><div><small>Focus</small><strong>Software Development</strong></div></div>
+          <div class="fact"><div class="fact-icon">⌖</div><div><small>Education</small><strong>Computer Science Engineering</strong></div></div>
+          <div class="fact"><div class="fact-icon">↗</div><div><small>Current goal</small><strong>Internship / Entry-level role</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="skills">
+      <div class="section-head">
+        <div><div class="section-kicker">02 / Toolkit</div><h2>Technologies I work with.</h2></div>
+        <p class="section-note">The core tools I’m building with as I continue to develop my engineering skills.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill"><span class="skill-mark">01 / LANGUAGE</span><strong>Python</strong></div>
+        <div class="skill"><span class="skill-mark">02 / DATABASE</span><strong>SQL</strong></div>
+        <div class="skill"><span class="skill-mark">03 / WEB</span><strong>HTML</strong></div>
+        <div class="skill"><span class="skill-mark">04 / WEB</span><strong>CSS</strong></div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="projects">
+      <div class="section-head">
+        <div><div class="section-kicker">03 / Selected work</div><h2>Projects.</h2></div>
+        <p class="section-note">A look at the work I’ve done as part of my learning journey.</p>
+      </div>
+      <article class="project">
+        <div class="project-art" aria-hidden="true">
+          <div class="chart-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="project-content">
+          <div class="project-type">Data Engineering · Machine Learning</div>
+          <h3>IPL Data Warehouse and Match Prediction</h3>
+          <p>An IPL-focused project bringing together data warehousing and match prediction. The project explores how structured cricket data can be organised and used to support analytical insights and prediction.</p>
+          <div class="chips"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Data Analysis</span><span class="chip">Machine Learning</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="container reveal" id="education">
+      <div class="section-head">
+        <div><div class="section-kicker">04 / Education</div><h2>Academic background.</h2></div>
+      </div>
+      <div class="panel education-card">
+        <div class="edu-icon">✦</div>
+        <div><h3>B.Tech in Computer Science Engineering</h3><p>Jain University</p></div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="languages">
+      <div class="section-head">
+        <div><div class="section-kicker">05 / Languages</div><h2>Communication.</h2></div>
+        <p class="section-note">Languages listed in my resume.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill"><span class="skill-mark">LANGUAGE</span><strong>English</strong></div>
+        <div class="skill"><span class="skill-mark">LANGUAGE</span><strong>Hindi</strong></div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="contact">
+      <div class="contact-panel">
+        <div>
+          <div class="section-kicker">06 / Contact</div>
+          <h2>Have an opportunity<br>or an idea?</h2>
+          <p>I’d be glad to connect. Reach out about internships, entry-level roles, projects or collaboration.</p>
+        </div>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:aryanbhat2109@gmail.com">Email me ↗</a>
+          <a class="button secondary" href="https://github.com/aryanbhat2109-ctrl" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/aryan-bhat-1736b0291" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Aryan Bhat. Built with care.</span>
+      <span>Designed for the next opportunity.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
